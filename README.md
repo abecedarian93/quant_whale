@@ -19,6 +19,43 @@
 - `vnpy/app/data_recorder`：数据录制应用
 - `vnpy/api`：各种数据接口 (如 Tushare, RQData 等)
 
+**XtQuant 数据获取链路**：
+
+vnpy 支持通过 [vnpy_xt](https://github.com/vnpy/vnpy_xt) 集成 XtQuant 数据服务，支持股票、期货、期权、基金、债券等多品种数据获取。
+
+1. **安装依赖**
+   ```bash
+   pip install vnpy_xt
+   ```
+
+2. **数据获取流程**
+   - 通过 `xtquant.xtdata` 模块下载数据
+   - 使用 `get_datafeed()` 初始化数据服务
+   - 支持实时行情订阅和历史数据查询
+
+3. **关键接口**
+   ```python
+   from xtquant import xtdata
+   from vnpy.trader.datafeed import get_datafeed
+   
+   # 初始化数据服务
+   datafeed = get_datafeed()
+   datafeed.init()
+   
+   # 下载历史数据
+   xtdata.download_history_data(stock_code, period, start_time, end_time)
+   
+   # 获取实时行情
+   xtdata.subscribe_quote(stock_code, period, callback)
+   ```
+
+4. **数据存储**
+   - 支持存储到本地数据库 (SQLite, MySQL, MongoDB 等)
+   - 通过 `vnpy.trader.database` 模块统一管理
+   - 支持多周期数据 (Tick, 1分钟, 日线等)
+
+参考示例：`vnpy/examples/alpha_research/download_data_xt.ipynb`
+
 ### 策略层
 
 **功能描述**：策略的开发、测试和执行。支持多种策略类型，如 CTA、期权等。
