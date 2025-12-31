@@ -19,8 +19,6 @@
 - `vnpy/app/data_recorder`：数据录制应用
 - `vnpy/api`：各种数据接口 (如 Tushare, RQData 等)
 
-**Demo**：见 `demo/data_layer_demo.py` - 演示如何使用 vnpy 获取和处理股票数据。
-
 ### 策略层
 
 **功能描述**：策略的开发、测试和执行。支持多种策略类型，如 CTA、期权等。
@@ -29,8 +27,6 @@
 - `vnpy/trader/strategy.py`：策略基类
 - `vnpy/app/cta_strategy`：CTA 策略应用
 - `vnpy/app/cta_backtester`：策略回测引擎
-
-**Demo**：见 `demo/strategy_layer_demo.py` - 演示一个简单的均线策略实现。
 
 ### 交易层
 
@@ -41,8 +37,6 @@
 - `vnpy/gateway`：交易网关 (如 CTP, XTP 等)
 - `vnpy/api/xtp`：XtQuant 接口 (如果支持)
 
-**Demo**：见 `demo/trading_layer_demo.py` - 演示订单提交和执行流程。
-
 ### 风控层
 
 **功能描述**：实时监控交易风险，包括仓位控制、止损等。
@@ -50,8 +44,6 @@
 **vnpy 对应模块**：
 - `vnpy/trader/risk_manager.py`：风险管理器
 - `vnpy/app/risk_manager`：风险管理应用
-
-**Demo**：见 `demo/risk_layer_demo.py` - 演示风控规则的设置和监控。
 
 ## vnpy 集成
 
